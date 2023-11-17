@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Games</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Games</h1>
+<div class="addItem">
+        <form method="post" action="/display_games">
+            <input type="submit" id="goBackBtn" name="goBackBtn" value="Go back">
+        </form>
+        {% if message_er %}
+            <p style="color: red;">{{ message_er }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

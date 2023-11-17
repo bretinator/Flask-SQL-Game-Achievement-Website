@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Achievements</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contentWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Achievements</h1>
+    <div class="contentWrapper">
+        <form method="post" action="display_achieve">
+            <input type="submit" id="goBackBtn" name="goBackBtn" value="Go back">
+
+            <label for="console">Console</label>
+            <select name="console" id="console">
+                {% for console in consoles %}
+                    <option value="{{ console.console_id }}">{{ console.console_name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="game">Game</label>
+            <select name="game" id="game">
+                {% for game in games %}
+                    <option value="{{ game.game_id }}">{{ game.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="difficulty">Difficulty</label>
+            <select name="difficulty" id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="very hard">Very Hard</option>
+            </select>
+
+            <input type="submit" class="addItemButton" name="searchButton" value="Search">
+        </form>
+        {% if message_er %}
+            <p style="color: red;">{{  message_er }}</p>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="contentWrapper">
+        <ul>
+            {% for display in displays %}
+                <li>{{ display }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <hr>
+    <div class="contentWrapper">
+        <ul>
+            {% for top_ten in top_tens %}
+                <li>{{ top_ten.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <hr>
+    <div class="contentWrapper">
+        <ul>
+            <li>Total Time Spent on Top Ten: {{ total_time_top_ten }}</li>
+        </ul>
+    </div>
+</body>
+</html>

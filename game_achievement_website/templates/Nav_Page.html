@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            padding-bottom: 5px;
+        }
+        input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Navigate</h1>
+    <form method="post" action="/nav_page">
+    <ul>
+        <li>
+            <input type="submit" id="addItems" name="addItems" value="Add Items">
+        </li>
+        <li>
+            <input type="submit" id="displayAchievements" name="displayAchievements" value="Achievements">
+        </li>
+        <li>
+            <input type="submit" id="displayGames" name="displayGames" value="Games">
+        </li>
+    </ul>
+    </form>
+</body>
+</html>
